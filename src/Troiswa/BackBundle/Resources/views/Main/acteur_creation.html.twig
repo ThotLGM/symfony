@@ -1,0 +1,128 @@
+{% extends 'TroiswaBackBundle::layout.html.twig' %}
+{% block titre %}
+    Creation acteur
+    {{ parent() }}
+{% endblock %}
+{% block css %}
+    {{ parent() }}
+{% endblock %}
+{% block central %}
+    {% block menuActeurs %}class="active"{% endblock %}
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Création acteur
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a href="{{ path('troiswa_back_admin') }}">Dashboard</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-group"></i>  <a href="{{ path('troiswa_back_acteurs') }}">Acteurs</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-user"></i> Création acteur
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="table-responsive">
+                        {{ form_start(formGenre, {'attr':{'novalidate':'novalidate'}}) }}
+                            <div class="form-group">
+                                {{ form_widget(formGenre.sexe, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.sexe) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.sexe) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formGenre.prenom, 'prenom') }}
+                                {{ form_widget(formGenre.prenom, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.prenom) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.prenom) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formGenre.nom, 'Nom') }}
+                                {{ form_widget(formGenre.nom, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.nom) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.nom) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formGenre.dateNaissance, 'Date de naissance') }}
+                                {{ form_widget(formGenre.dateNaissance, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.dateNaissance) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.dateNaissance) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formGenre.ville, 'Ville') }}
+                                {{ form_widget(formGenre.ville, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.ville) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.ville) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formGenre.biographie, 'Biographie') }}
+                                {{ form_widget(formGenre.biographie, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.biographie) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.biographie) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formGenre.fichier, 'Image') }}
+                                {{ form_widget(formGenre.fichier, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.fichier) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.fichier) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formGenre.liaisonFilm, 'Genre associé') }}
+                                {{ form_widget(formGenre.liaisonFilm, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.liaisonFilm) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.liaisonFilm) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            {{ form_widget(formGenre.creer, {'attr':{'class':'btn btn-default'}}) }}
+                        {{ form_end(formGenre) }}
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+{% endblock %}

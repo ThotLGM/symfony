@@ -1,0 +1,90 @@
+troiswa_back_homepage:
+    path:     /hello
+    defaults: { _controller: TroiswaBackBundle:Default:index }
+
+troiswa_back_test:
+    path:    /essai
+    defaults: { _controller: TroiswaBackBundle:Default:try }
+
+troiswa_back_admin:
+    path:    /admin
+    defaults: { _controller: TroiswaBackBundle:Main:admin }
+
+troiswa_back_acteurs:
+    path:    /admin/acteur
+    defaults: { _controller: TroiswaBackBundle:Acteur:acteur }
+
+troiswa_back_info_acteurs:
+    path:    /admin/acteur/{id}
+    defaults: { _controller: TroiswaBackBundle:Acteur:information }
+    requirements:
+        id: \d+
+
+troiswa_back_films:
+    path:    /admin/films
+    defaults: { _controller: TroiswaBackBundle:Film:film }
+
+
+troiswa_back_info_films:
+    path:    /admin/films/{id}
+    defaults: { _controller: TroiswaBackBundle:Film:information }
+    requirements:
+        id: \d+
+
+troiswa_back_film_creation:
+    path:    /admin/film/creation
+    defaults: { _controller: TroiswaBackBundle:Film:creer }
+
+troiswa_back_film_modif:
+    path:    /admin/film/modifier/{id}
+    defaults: { _controller: TroiswaBackBundle:Film:modifier }
+    requirements:
+        id: \d+
+
+troiswa_back_film_suppr:
+    path:    /admin/film/supprimer/{id}
+    defaults: { _controller: TroiswaBackBundle:Film:supprimer }
+    requirements:
+        id: \d+
+
+troiswa_back_genres:
+    path:    /admin/genres
+    defaults: { _controller: TroiswaBackBundle:Genre:genre }
+
+troiswa_back_info_genres:
+    path:    /admin/genres/{id}
+    defaults: { _controller: TroiswaBackBundle:Genre:information }
+    requirements:
+        id: \d+
+
+troiswa_back_genre_creation:
+    path:    /admin/genre/creation
+    defaults: { _controller: TroiswaBackBundle:Genre:creer }
+
+troiswa_back_genre_modif:
+    path:    /admin/genre/modifier/{id}
+    defaults: { _controller: TroiswaBackBundle:Genre:modifier }
+    requirements:
+        id: \d+
+
+troiswa_back_genre_suppr:
+    path:    /admin/genre/supprimer/{id}
+    defaults: { _controller: TroiswaBackBundle:Genre:supprimer }
+    requirements:
+        id: \d+
+
+troiswa_back_acteur_creation:
+    path:    /admin/acteur/creation
+    defaults: { _controller: TroiswaBackBundle:Acteur:creer }
+
+troiswa_back_acteur_modif:
+    path:    /admin/acteur/modifier/{id}
+    defaults: { _controller: TroiswaBackBundle:Acteur:modifier }
+    requirements:
+        id: \d+
+
+troiswa_back_acteur_suppr:
+    path:    /admin/acteur/supprimer/{id}
+    defaults: { _controller: TroiswaBackBundle:Acteur:supprimer }
+    requirements:
+        id: \d+

@@ -1,0 +1,89 @@
+{% extends 'TroiswaBackBundle::layout.html.twig' %}
+{% block titre %}
+    Les acteurs
+    {{ parent() }}
+{% endblock %}
+{% block css %}
+    {{ parent() }}
+{% endblock %}
+{% block central %}
+    {% block menuActeurs %}class="active"{% endblock %}
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Tous les acteurs ({{ acteurs|length }})
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a href="{{ path('troiswa_back_admin') }}">Dashboard</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-group"></i> Acteurs
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Bordered Table</h2>
+                    {% for message in app.session.flashbag.get('success_genre') %}
+                        <p class="alert alert-success">{{ message }}</p>
+                    {% endfor %}
+                    <div class="table-responsive">
+                        ({{ acteurs.getTotalItemCount }})
+                        <a class="btn btn-primary" href="{{ path('troiswa_back_acteur_creation') }}">Créer un nouvel acteur</a>
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>{{ knp_pagination_sortable(acteurs, 'Id', 'a.id') }}</th>
+                                <th>{{ knp_pagination_sortable(acteurs, 'Nom', 'a.nom') }}</th>
+                                <th>{{ knp_pagination_sortable(acteurs, 'Prenom', 'a.prenom') }}</th>
+                                <th>{{ knp_pagination_sortable(acteurs, 'Age', 'a.age') }}</th>
+                                <th>{{ knp_pagination_sortable(acteurs, 'Genre', 'a.genre') }}</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for acteur in acteurs %}
+                            <tr>
+                                <td>{{ acteur.id }}</td>
+                                <td>{{ acteur.prenom|capitalize }}</td>
+                                <td>{{ acteur.nom|capitalize }}</td>
+                                <td>{{ acteur.dateNaissance|date("m/d/Y") }}</td>
+                                {% if acteur.sexe == 0 %}
+                                <td>Femme</td>
+                                {% else %}
+                                <td>Homme</td>
+                                {% endif %}
+                                <td>
+                                    <a class="btn btn-success" href="{{ path('troiswa_back_info_acteurs',{'id':acteur.id}) }}">Voir</a>
+                                    <a class="btn btn-primary" href="{{ path('troiswa_back_acteur_modif',{'id':acteur.id}) }}">modifier</a>
+                                    <a class="btn btn-danger"  href="{{ path('troiswa_back_acteur_suppr',{'id':acteur.id}) }}">supprimer</a>
+                                </td>
+                            </tr>{% endfor %}
+                            </tbody>
+                        </table>
+                        {{ knp_pagination_render(acteurs) }}
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,10 @@
+
+    {% extends 'TroiswaBackBundle:Default:index.html.twig' %}
+
+    {% block contenu %}
+        phrase
+    {% endblock %}
+    {% block autre %}
+        {{ parent() }}
+        et la suite
+    {% endblock %}

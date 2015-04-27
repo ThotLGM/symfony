@@ -1,0 +1,111 @@
+{% extends 'TroiswaBackBundle::layout.html.twig' %}
+{% block titre %}
+    Creation Film
+    {{ parent() }}
+{% endblock %}
+{% block css %}
+    {{ parent() }}
+{% endblock %}
+{% block central %}
+    {% block menuFilms %}class="active"{% endblock %}
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Création Film
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a href="{{ path('troiswa_back_admin') }}">Dashboard</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-film"></i>  <a href="{{ path('troiswa_back_films') }}">Films</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-camera"></i> Création film
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="table-responsive">
+                        {{ form_start(formGenre, {'attr':{'novalidate':'novalidate'}}) }}
+                            <div class="form-group">
+                                {{ form_label(formGenre.titre, 'Titre') }}
+                                {{ form_widget(formGenre.titre, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.titre) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.titre) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formGenre.description, 'Description') }}
+                                {{ form_widget(formGenre.description, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.description) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.description) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formGenre.dateDeRealisation, 'Date de realisation') }}
+                                {{ form_widget(formGenre.dateDeRealisation, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.dateDeRealisation) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.dateDeRealisation) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formGenre.note, 'note') }}
+                                {{ form_widget(formGenre.note, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.note) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.note) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formGenre.fichier, 'Image') }}
+                                {{ form_widget(formGenre.fichier, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.fichier) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.fichier) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="form-group">
+                                {{ form_label(formGenre.liaisonGenre, 'Genre associé') }}
+                                {{ form_widget(formGenre.liaisonGenre, {'attr':{'class':'form-control'}}) }}
+                                {% if form_errors(formGenre.liaisonGenre) is not empty %}
+                                    <div class="alert alert-danger">
+                                        {{ form_errors(formGenre.liaisonGenre) }}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            {{ form_widget(formGenre.modifier, {'attr':{'class':'btn btn-default'}}) }}
+                        {{ form_end(formGenre) }}
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+{% endblock %}

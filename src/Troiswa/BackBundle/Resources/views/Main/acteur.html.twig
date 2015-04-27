@@ -1,0 +1,92 @@
+{% extends 'TroiswaBackBundle::layout.html.twig' %}
+{% block titre %}
+    {{ acteur.prenom|capitalize }} {{ acteur.nom|capitalize }}
+    {{ parent() }}
+{% endblock %}
+{% block css %}
+    {{ parent() }}
+{% endblock %}
+{% block central %}
+    {% block menuActeur %}class="active"{% endblock %}
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Tous les acteurs
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a href="{{ path('troiswa_back_admin') }}">Dashboard</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-group"></i>  <a href="{{ path('troiswa_back_acteurs') }}">Acteurs</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-user"></i> Acteur
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Bordered Table</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>prenom</th>
+                                <th>Nom</th>
+                                <th>Age</th>
+                                <th>genre</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                            <tr>
+                                <td>{{ acteur.id }}</td>
+                                <td>{{ acteur.prenom|capitalize }}</td>
+                                <td>{{ acteur.nom|capitalize }}</td>
+                                <td>{{ acteur.dateNaissance|date("m/d/Y") }}</td>
+                                {% if acteur.sexe == 0 %}
+                                <td>Femme</td>
+                                {% else %}
+                                <td>Homme</td>
+                                {% endif %}
+                               <!-- <td><img width="200px" class="img-thumbnail" src="{{ asset("images/") }}{{ acteur.image }}"</td>-->
+                                <td><img width="200px" class="img-thumbnail" src="{{ asset(acteur.displayImage) }}"</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        {% for filmo in filmographie %}
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <ul class="list-group">
+                                    <li class="list-group-item">{{ filmo.titre }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'TroiswaBackBundle::layout.html.twig' %}
+{% block titre %}
+    {{ genre.type|capitalize }}
+    {{ parent() }}
+{% endblock %}
+{% block css %}
+    {{ parent() }}
+{% endblock %}
+{% block central %}
+    {% block menuGenres %}class="active"{% endblock %}
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Genre
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i>  <a href="{{ path('troiswa_back_admin') }}">Dashboard</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-tags"></i>  <a href="{{ path('troiswa_back_genres') }}">Genres</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-user-tag"></i> Genre
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Bordered Table</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{ genre.id }}</td>
+                                <td>{{ genre.type }}</td>
+                                <td>{{ genre.description }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+{% endblock %}
